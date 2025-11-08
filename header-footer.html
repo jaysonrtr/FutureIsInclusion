@@ -1,0 +1,70 @@
+<!-- header-footer.html -->
+<style>
+  .site-header {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .site-header img {
+    max-height: 60px;
+  }
+
+  .site-nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .site-nav a:hover {
+    color: #00b67a;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #f8f8f8;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid #ddd;
+  }
+
+  @media (max-width: 768px) {
+    .site-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .site-nav {
+      margin-top: 1rem;
+    }
+
+    .site-nav a {
+      display: inline-block;
+      margin: 0.5rem 1rem 0 0;
+    }
+  }
+</style>
+
+<header class="site-header">
+  <a href="index.html">
+    <img src="assets/inclusion-logo-header.png" alt="The Future is Inclusion Logo" />
+  </a>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="resources.html">Resources</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<footer>
+  &copy; 2025 The Future is Inclusion. All rights reserved.
+</footer>
