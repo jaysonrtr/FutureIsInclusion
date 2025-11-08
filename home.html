@@ -1,4 +1,4 @@
-der<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Index | The Future is Inclusion</title>
@@ -24,9 +24,8 @@ der<!DOCTYPE html>
 </head>
 <body>
   
-<header style="text-align: center; padding: 2rem 1rem; background-color: #00b67a;">
-  <img src="assets/inclusion-logo-header.png" alt="The Future is Inclusion Logo" style="max-height: 120px;" />
-</header>
+
+<div id="shared-header-footer"></div>
 
   <div class="container">
     
@@ -35,9 +34,13 @@ der<!DOCTYPE html>
     
   </div>
   
-<footer style="text-align: center; padding: 2rem 1rem; background-color: #f0f0f0; color: #666;">
-  &copy; 2025 The Future is Inclusion. All rights reserved.
-</footer>
+<script>
+  fetch('header-footer.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('shared-header-footer').innerHTML = html;
+    });
+</script>
 
 </body>
 </html>
