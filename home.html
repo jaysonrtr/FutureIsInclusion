@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/favicon_black.ico" />
 <style>
   body { margin: 0; font-family: 'Open Sans', sans-serif; background-color: #fdfdfd; color: #222; line-height: 1.6; }
   h1, h2 { font-family: 'Fraunces', serif; color: #00b67a; }
@@ -23,9 +24,8 @@
 </head>
 <body>
   
-<header style="text-align: center; padding: 2rem 1rem; background-color: #00b67a;">
-  <img src="assets/inclusion-logo-resized.png" alt="The Future is Inclusion Logo" style="max-height: 120px;" />
-</header>
+
+<div id="shared-header-footer"></div>
 
   <div class="container">
     
@@ -34,9 +34,13 @@
     
   </div>
   
-<footer style="text-align: center; padding: 2rem 1rem; background-color: #f0f0f0; color: #666;">
-  &copy; 2025 The Future is Inclusion. All rights reserved.
-</footer>
+<script>
+  fetch('header-footer.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('shared-header-footer').innerHTML = html;
+    });
+</script>
 
 </body>
 </html>
