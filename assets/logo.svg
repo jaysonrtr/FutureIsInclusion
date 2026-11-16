@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 236 160" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">The Future is Inclusion</title>
+  <!--
+    Header mark. The browser shows assets/logo.png (this file displays that image).
+    Home hero: assets/logo-hero.png. Apple touch icon: assets/icon.png.
+    Replace those files together when a new logo arrives. The 4MB master is not in the repo.
+  -->
+  <image href="logo.png" width="236" height="160"/>
+</svg>

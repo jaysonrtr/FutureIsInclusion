@@ -1,0 +1,23 @@
+{
+  "note": "Add, edit, or remove entries in resources. Category must match a category id. Categories with no entries stay out of the filter. The filter is hidden when fewer than two categories have entries. Set placeholder to false for a real resource. Leave url empty until you have a real link. Do not invent organizations.",
+  "categories": [
+    { "id": "business", "label": "Inclusive business practices" },
+    { "id": "accessibility", "label": "Accessibility improvement guides" },
+    { "id": "awareness", "label": "Disability awareness and education" },
+    { "id": "employees", "label": "Employee inclusion resources" },
+    { "id": "service", "label": "Customer service and communication guidance" },
+    { "id": "programs", "label": "Inclusive programs and activities" },
+    { "id": "local", "label": "Local inclusive organizations and service providers" },
+    { "id": "toolkits", "label": "Downloadable resources and toolkits" }
+  ],
+  "resources": [
+    {
+      "category": "programs",
+      "title": "Invitation to Inclusion bags",
+      "summary": "placeholder for now",
+      "placeholder": false,
+      "source": "",
+      "url": "invitation-to-inclusion-bags.html"
+    }
+  ]
+}

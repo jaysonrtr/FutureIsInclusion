@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9f5e6">
+  <meta name="color-scheme" content="light">
+  <title>Invitation to Inclusion Bags · The Future is Inclusion</title>
+  <meta name="description" content="Pick-up locations for Invitation to Inclusion bags.">
+  <!-- Shared head tags. Canonical copy: head.html. Repeated here so the page still renders from file:// and before fetch. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div id="site-header">
+    <header class="site-header" data-source="fallback">
+      <div class="wrap header-bar">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png" width="236" height="160" alt="">
+          <span class="brand-name">The Future is Inclusion</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main id="main" tabindex="-1">
+    <header class="page-header">
+      <div class="wrap">
+        <h1>Invitation to Inclusion Bags</h1>
+        <div class="rule" aria-hidden="true"></div>
+        <p class="prose">placeholder for now</p>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="pickup-heading">
+      <div class="wrap">
+        <h2 id="pickup-heading">Pick-up locations</h2>
+        <div id="pickup-map" class="pickup-map" role="region" aria-label="Map of pick-up locations for Invitation to Inclusion bags. The same locations are listed as links below the map."></div>
+        <!-- Locations live in the JSON below. Add an object to that array to show another pin and list item. -->
+        <ul id="pickup-list" class="pickup-list"></ul>
+        <noscript>
+          <ul class="pickup-list">
+            <li><a href="https://www.google.com/maps/place/Rise+School+of+Tuscaloosa/@33.208047,-87.5318529,17z/data=!3m1!4b1!4m6!3m5!1s0x8888a8108393245f:0xf44ed448e308b36c!8m2!3d33.208047!4d-87.529278!16s%2Fg%2F1tgwng71" target="_blank" rel="noopener">Rise Center (Rise School of Tuscaloosa)</a>, Tuscaloosa, AL</li>
+          </ul>
+        </noscript>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer">
+    <footer class="site-footer" data-source="fallback">
+      <div class="wrap footer-grid">
+        <div>
+          <p class="footer-name">The Future is Inclusion</p>
+          <p>A resource on inclusion and accessibility for people of all abilities.</p>
+        </div>
+        <div>
+          <p class="footer-label">Email</p>
+          <p><a href="mailto:hello@futureisinclusion.org">hello@futureisinclusion.org</a></p>
+        </div>
+        <nav aria-label="Footer">
+          <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="wrap footer-base">
+        <p>© <span data-year>2026</span> The Future is Inclusion</p>
+      </div>
+    </footer>
+  </div>
+
+  <script type="application/json" id="pickup-locations">
+    [
+      {
+        "name": "Rise Center (Rise School of Tuscaloosa)",
+        "place": "Tuscaloosa, AL",
+        "lat": 33.208047,
+        "lng": -87.529278,
+        "mapsUrl": "https://www.google.com/maps/place/Rise+School+of+Tuscaloosa/@33.208047,-87.5318529,17z/data=!3m1!4b1!4m6!3m5!1s0x8888a8108393245f:0xf44ed448e308b36c!8m2!3d33.208047!4d-87.529278!16s%2Fg%2F1tgwng71"
+      }
+    ]
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>

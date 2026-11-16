@@ -1,43 +1,151 @@
-der<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Contact | The Future is Inclusion</title>
-  
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="assets/favicon_noframe.ico" />
-  <style>
-  body { margin: 0; font-family: 'Open Sans', sans-serif; background-color: #fdfdfd; color: #222; line-height: 1.6; }
-  h1, h2 { font-family: 'Fraunces', serif; color: #00b67a; }
-  .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
-  nav { text-align: center; background-color: #eee; padding: 1rem; }
-  nav a { margin: 0 1rem; text-decoration: none; color: #00b67a; font-weight: bold; }
-</style>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="resources.html">Resources</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9f5e6">
+  <meta name="color-scheme" content="light">
+  <title>Contact · The Future is Inclusion</title>
+  <meta name="description" content="Contact The Future is Inclusion for general questions, partnerships, and ways organizations can participate.">
+  <!-- Shared head tags. Canonical copy: head.html. Repeated here so the page still renders from file:// and before fetch. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
-  
-<header style="text-align: center; padding: 2rem 1rem; background-color: #00b67a;">
-  <img src="assets/inclusion-logo-header.png" alt="The Future is Inclusion Logo" style="max-height: 120px;" />
-</header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="container">
-    
-    <h1>Contact Us</h1>
-    <p>If you'd like to get in touch, collaborate, or learn more about our work, please email us at: <a href="mailto:hello@futureisinclusion.org">hello@futureisinclusion.org</a></p>
-    
+  <div id="site-header">
+    <header class="site-header" data-source="fallback">
+      <div class="wrap header-bar">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png" width="236" height="160" alt="">
+          <span class="brand-name">The Future is Inclusion</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   </div>
-  
-<footer style="text-align: center; padding: 2rem 1rem; background-color: #f0f0f0; color: #666;">
-  &copy; 2025 The Future is Inclusion. All rights reserved.
-</footer>
 
+  <main id="main" tabindex="-1">
+    <header class="page-header">
+      <div class="wrap">
+        <h1>Contact</h1>
+        <div class="rule" aria-hidden="true"></div>
+        <p class="prose">Write with a question, an idea for working together, or a way your organization wants to take part.</p>
+      </div>
+    </header>
+
+    <div class="wrap contact-layout">
+      <div class="contact-copy">
+        <h2>General inquiries</h2>
+        <p>Questions about inclusion, Invitation to Inclusion bags, or the resource library belong here.</p>
+
+        <h2>Partnership and collaboration</h2>
+        <p>Businesses, schools, and community organizations are welcome to propose a collaboration. Tell us who you serve and what you hope to do together.</p>
+
+        <h2>Ways for organizations to participate</h2>
+        <ul>
+          <li>Ask about Invitation to Inclusion bags for the families and caregivers you serve.</li>
+          <li>Tell us about an inclusive program or local organization that belongs in the directory.</li>
+          <li>Share a practical resource your staff already uses, so others can learn from it.</li>
+          <li>Invite a conversation with your team about becoming more welcoming.</li>
+        </ul>
+
+        <h2>Email</h2>
+        <p><a href="mailto:hello@futureisinclusion.org">hello@futureisinclusion.org</a></p>
+      </div>
+
+      <div class="contact-panel">
+        <h2 id="write-heading">Write to us</h2>
+        <p>Fields marked required must be filled in. You can also email us directly.</p>
+        <div id="form-notice" class="form-notice" hidden tabindex="-1"></div>
+        <!--
+          FORM ENDPOINT
+          This action is the only place to set form delivery.
+          Leave it empty until you have a service such as Formspree.
+          Example: action="https://formspree.io/f/xxxxxxxx"
+          While it is empty, the form does not pretend to send.
+        -->
+        <form id="contact-form" class="contact-form" method="post" action="" novalidate aria-labelledby="write-heading">
+          <div class="field">
+            <label for="name">Name <span class="req">(required)</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="name-error">
+            <p id="name-error" class="field-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="req">(required)</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="200" spellcheck="false" aria-describedby="email-error">
+            <p id="email-error" class="field-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="topic">Topic <span class="req">(required)</span></label>
+            <select id="topic" name="topic" required aria-describedby="topic-error">
+              <option value="">Select a topic</option>
+              <option value="General inquiry">General inquiry</option>
+              <option value="Partnership or collaboration">Partnership or collaboration</option>
+              <option value="Organization participation">Organization participation</option>
+            </select>
+            <p id="topic-error" class="field-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="organization">Organization <span class="optional">(optional)</span></label>
+            <input id="organization" name="organization" type="text" autocomplete="organization" maxlength="160">
+          </div>
+          <div class="field">
+            <label for="message">Message <span class="req">(required)</span></label>
+            <textarea id="message" name="message" rows="6" required maxlength="4000" aria-describedby="message-error"></textarea>
+            <p id="message-error" class="field-error" hidden></p>
+          </div>
+          <button class="button" type="submit">Send message</button>
+        </form>
+        <noscript>
+          <p>This form needs JavaScript to check your answers. Email <a href="mailto:hello@futureisinclusion.org">hello@futureisinclusion.org</a> instead.</p>
+        </noscript>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer">
+    <footer class="site-footer" data-source="fallback">
+      <div class="wrap footer-grid">
+        <div>
+          <p class="footer-name">The Future is Inclusion</p>
+          <p>A resource on inclusion and accessibility for people of all abilities.</p>
+        </div>
+        <div>
+          <p class="footer-label">Email</p>
+          <p><a href="mailto:hello@futureisinclusion.org">hello@futureisinclusion.org</a></p>
+        </div>
+        <nav aria-label="Footer">
+          <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="wrap footer-base">
+        <p>© <span data-year>2026</span> The Future is Inclusion</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

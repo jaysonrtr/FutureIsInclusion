@@ -1,45 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>About | The Future is Inclusion</title>
-  
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="assets/favicon_black.ico" />
-<style>
-  body { margin: 0; font-family: 'Open Sans', sans-serif; background-color: #fdfdfd; color: #222; line-height: 1.6; }
-  h1, h2 { font-family: 'Fraunces', serif; color: #00b67a; }
-  .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
-  nav { text-align: center; background-color: #eee; padding: 1rem; }
-  nav a { margin: 0 1rem; text-decoration: none; color: #00b67a; font-weight: bold; }
-</style>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="resources.html">Resources</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9f5e6">
+  <meta name="color-scheme" content="light">
+  <title>About · The Future is Inclusion</title>
+  <meta name="description" content="Our vision and mission: a world where every child is welcomed and included, with practical tools and local connections for caregivers and communities.">
+  <!-- Shared head tags. Canonical copy: head.html. Repeated here so the page still renders from file:// and before fetch. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
-  
-<header style="text-align: center; padding: 2rem 1rem; background-color: #00b67a;">
-  <img src="assets/inclusion-logo-header.png" alt="The Future is Inclusion Logo" style="max-height: 120px;" />
-</header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="container">
-    
-    <h2>Our Vision</h2>
-    <p>We envision a world where every child, regardless of ability, is welcomed, celebrated, and fully included in their community. Through our Invitation to Inclusion bags and a growing directory of local inclusive resources, we aim to spark connection, raise awareness, and equip individuals and organizations to create environments where all children can belong and thrive.</p>
-    <h2>Our Mission</h2>
-    <p>Our mission is to promote inclusion by equipping caregivers and communities with practical tools, meaningful resources, and local connections. Through the distribution of Invitation to Inclusion bags and a comprehensive directory of inclusive organizations, we empower individuals to advocate for children of all abilities and foster a culture of belonging in every space.</p>
-    
+  <div id="site-header">
+    <header class="site-header" data-source="fallback">
+      <div class="wrap header-bar">
+        <a class="brand" href="index.html">
+          <img src="assets/logo.png" width="236" height="160" alt="">
+          <span class="brand-name">The Future is Inclusion</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   </div>
-  
-<footer style="text-align: center; padding: 2rem 1rem; background-color: #f0f0f0; color: #666;">
-  &copy; 2025 The Future is Inclusion. All rights reserved.
-</footer>
 
+  <main id="main" tabindex="-1">
+    <header class="page-header">
+      <div class="wrap">
+        <h1>About</h1>
+        <div class="rule" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <section class="section stack">
+      <div class="wrap">
+        <div class="prose">
+        <h2>Our Vision</h2>
+        <p class="statement">We envision a world where every child, regardless of ability, is welcomed, celebrated, and fully included in their community. Through our Invitation to Inclusion bags and a growing directory of local inclusive resources, we aim to spark connection, raise awareness, and equip individuals and organizations to create environments where all children can belong and thrive.</p>
+        <h2>Our Mission</h2>
+        <p class="statement">Our mission is to promote inclusion by equipping caregivers and communities with practical tools, meaningful resources, and local connections. Through the distribution of Invitation to Inclusion bags and a comprehensive directory of inclusive organizations, we empower individuals to advocate for children of all abilities and foster a culture of belonging in every space.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band" aria-labelledby="practice-heading">
+      <div class="wrap">
+        <div class="prose">
+        <h2 id="practice-heading">Invitation to Inclusion</h2>
+        <p>The vision and mission name two efforts: Invitation to Inclusion bags, and a directory of local inclusive resources. The bags are a way to start a conversation. The directory is a way to find organizations that welcome children of all abilities.</p>
+        <p><a href="resources.html">Browse the resource library</a></p>
+        <p><a href="contact.html">Contact the organization</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer">
+    <footer class="site-footer" data-source="fallback">
+      <div class="wrap footer-grid">
+        <div>
+          <p class="footer-name">The Future is Inclusion</p>
+          <p>A resource on inclusion and accessibility for people of all abilities.</p>
+        </div>
+        <div>
+          <p class="footer-label">Email</p>
+          <p><a href="mailto:hello@futureisinclusion.org">hello@futureisinclusion.org</a></p>
+        </div>
+        <nav aria-label="Footer">
+          <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="wrap footer-base">
+        <p>© <span data-year>2026</span> The Future is Inclusion</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
