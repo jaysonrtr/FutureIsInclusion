@@ -228,10 +228,17 @@ document.documentElement.classList.add("js");
       });
 
       var noun = shown === 1 ? "resource" : "resources";
+      var filtersHidden = fieldset && fieldset.hidden;
       if (query && shown === 0) {
-        setStatus("No resources match “" + query + "”. Try a different word, or choose All.");
+        setStatus(filtersHidden
+          ? "No resources match “" + query + "”. Try a different word."
+          : "No resources match “" + query + "”. Try a different word, or choose All.");
       } else if (query) {
-        setStatus("Showing " + shown + " " + noun + " matching “" + query + "” in " + activeLabel + ".");
+        setStatus(filtersHidden
+          ? "Showing " + shown + " " + noun + " matching “" + query + "”."
+          : "Showing " + shown + " " + noun + " matching “" + query + "” in " + activeLabel + ".");
+      } else if (filtersHidden) {
+        setStatus("Showing " + shown + " " + noun + ".");
       } else {
         setStatus("Showing " + shown + " " + noun + " in " + activeLabel + ".");
       }
@@ -243,8 +250,19 @@ document.documentElement.classList.add("js");
       data.resources.forEach(function (item) {
         counts[item.category] = (counts[item.category] || 0) + 1;
       });
+      var activeCategories = data.categories.filter(function (cat) {
+        return (counts[cat.id] || 0) > 0;
+      });
+      var library = fieldset ? fieldset.closest(".library") : null;
+      var hideFilters = activeCategories.length < 2;
+      if (fieldset) fieldset.hidden = hideFilters;
+      if (library) library.classList.toggle("filters-hidden", hideFilters);
+      if (hideFilters) {
+        category = "all";
+        return;
+      }
       var choices = [{ id: "all", label: "All", count: data.resources.length }].concat(
-        data.categories.map(function (cat) {
+        activeCategories.map(function (cat) {
           return { id: cat.id, label: cat.label, count: counts[cat.id] || 0 };
         })
       );
@@ -468,9 +486,101 @@ document.documentElement.classList.add("js");
     });
   }
 
+  function readPickupLocations() {
+    var dataEl = document.getElementById("pickup-locations");
+    if (!dataEl) return [];
+    try {
+      var parsed = JSON.parse(dataEl.textContent);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function externalLink(href, label) {
+    var link = document.createElement("a");
+    link.href = href;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.appendChild(document.createTextNode(label));
+    var hint = document.createElement("span");
+    hint.className = "visually-hidden";
+    hint.textContent = " (opens in a new tab)";
+    link.appendChild(hint);
+    return link;
+  }
+
+  function renderPickupList(locations) {
+    var listEl = document.getElementById("pickup-list");
+    if (!listEl) return;
+    listEl.replaceChildren();
+    locations.forEach(function (loc) {
+      if (!loc || !loc.name || !loc.mapsUrl) return;
+      var li = document.createElement("li");
+      li.appendChild(externalLink(loc.mapsUrl, loc.name));
+      if (loc.place) li.appendChild(document.createTextNode(", " + loc.place));
+      listEl.appendChild(li);
+    });
+  }
+
+  function initPickupMap() {
+    var locations = readPickupLocations().filter(function (loc) {
+      return loc && typeof loc.lat === "number" && typeof loc.lng === "number" && loc.mapsUrl && loc.name;
+    });
+    renderPickupList(locations);
+    var mapEl = document.getElementById("pickup-map");
+    if (!mapEl || !locations.length || typeof L === "undefined") return;
+
+    var map = L.map(mapEl, {
+      scrollWheelZoom: false
+    });
+    if (locations.length === 1) {
+      map.setView([locations[0].lat, locations[0].lng], 15);
+    } else {
+      map.fitBounds(locations.map(function (loc) {
+        return [loc.lat, loc.lng];
+      }), { padding: [24, 24], maxZoom: 15 });
+    }
+
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    mapEl.setAttribute("role", "region");
+    mapEl.setAttribute("aria-label", "Map of pick-up locations for Invitation to Inclusion bags. The same locations are listed as links below the map.");
+
+    locations.forEach(function (loc) {
+      var place = loc.place ? ", " + loc.place : "";
+      var popup = document.createElement("p");
+      popup.className = "pickup-popup";
+      var link = externalLink(loc.mapsUrl, loc.name + " on Google Maps");
+      popup.appendChild(link);
+
+      var marker = L.marker([loc.lat, loc.lng], {
+        keyboard: true,
+        alt: loc.name + place
+      });
+      marker.bindPopup(popup);
+      marker.addTo(map);
+      var icon = marker.getElement();
+      if (icon) {
+        icon.addEventListener("keydown", function (event) {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          marker.openPopup();
+        });
+      }
+      marker.on("popupopen", function () {
+        link.focus();
+      });
+    });
+  }
+
   onReady(function () {
     initChrome();
     initResources();
     initContact();
+    initPickupMap();
   });
 })();

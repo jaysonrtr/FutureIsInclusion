@@ -31,11 +31,10 @@ Each entry looks like this:
 }
 ```
 
-- `category` must be one of the `id` values in `categories`. To add a category, add an object there with an `id` and a `label`. It will show up in the filter.
+- `category` must be one of the `id` values in `categories`. To add a category, add an object there with an `id` and a `label`. A category appears in the filter only when it has at least one resource. With fewer than two categories in use, the filter is hidden and search still works.
 - `placeholder` should stay `true` until the entry is real. Placeholder entries are labeled on the page and should not be treated as recommendations.
-- `url` should be an empty string until you have a real link. Do not invent organizations or paste a guessed address.
+- `url` should be an empty string until you have a real link. Use a real URL you have checked. Do not invent organizations or paste a guessed address.
 - `source` is the publisher name shown above the title. Leave it empty if there is nothing to name.
-- Well-known public sources already in the file, such as ADA.gov and W3C WAI, use their real URLs. Check a link before you add another.
 
 Save the file and refresh the browser.
 
